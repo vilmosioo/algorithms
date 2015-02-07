@@ -2,8 +2,11 @@
 
 describe('Bubble sort', function(){
 
-	it('should sort given array', function(){
-		
-	})
+	var bubblesort = require('../../src/sorting/bubblesort'), 
+		helper = require('../helpers/sorting');
+
+	it('should sort given arrays', function(){
+		helper(bubblesort);
+	});
 
 });
