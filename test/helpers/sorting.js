@@ -6,7 +6,7 @@ var expect = require('expect.js'),
 	tests = data.reduce(function(obj, test){
 		obj.push({
 			input: test,
-			expect: test.sort(function(a, b){
+			expect: test.slice().sort(function(a, b){
 				return a < b;
 			})
 		});
@@ -15,6 +15,9 @@ var expect = require('expect.js'),
 
 module.exports = function(sort){
 	tests.forEach(function(test){
+		console.log(test.input);
+		console.log(test.expect);
+
 		expect(sort(test.input)).to.eql(test.expect);
 	});
 };
