@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/karma/bin/karma start --single-run"
+    "test": "./node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -16,9 +16,7 @@
   },
   "homepage": "https://github.com/vilmosioo/algorithms",
   "devDependencies": {
-    "jasmine-core": "^2.2.0",
-    "karma": "^0.12.31",
-    "karma-jasmine": "^0.3.5",
-    "karma-phantomjs-launcher": "^0.1.4"
+    "mocha": "^2.1.0",
+    "expect.js": "^0.3.1"
   }
 }

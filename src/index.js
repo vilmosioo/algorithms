@@ -1,5 +1,9 @@
 'use strict';
 
-var Algorithms = (function(Algorithms){
-	return Algorithms;
-})(Algorithms || {});
+var fs = require('fs');
+
+module.exports = {
+	Sorting: {
+		bubblesort: require('./sorting/bubblesort')
+	}
+};
