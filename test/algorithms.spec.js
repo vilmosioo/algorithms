@@ -10,6 +10,6 @@ describe('Algorithms', function(){
 		expect(Algorithms).to.be.an(Object);
 		expect(Algorithms.Sorting).to.be.an(Object);
 		expect(Algorithms.Sorting.bubblesort).to.be.a(Function);
-	})
+	});
 
 });
