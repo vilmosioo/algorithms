@@ -9,38 +9,34 @@
 * Disadvantage: Worst case On^2 when pivot is left most elemetn and array is already sorted
 */
 
-var quicksort = function(arr){
+var swap = require('../util/swap');
+
+var quicksort = function(arr, lo, hi){
+	if(lo < hi){
+		var current = partition(arr, lo, hi);
+		quicksort(arr, lo, current - 1);
+		quicksort(arr, current + 1, hi);
+	}
+	return arr;
+};
+
+var partition = function(arr, lo, hi){
 	// get pivot
-	var i, l = arr.length, index = Math.floor(l/2), pivot = arr[index];
+	var index = lo + Math.floor((hi - lo) / 2), pivot = arr[index], current = lo, i; 
 
-	// arr of length 1 is considered sorted
-	if(l <= 1){
-		return arr;
-	}
-
-	// create two sublists, one with smaller, one with larger
-	var smaller = [], larger = [];
-	for(i = 0; i < l; i++){
-		if(i === index){
-			continue;
-		}
-
+	// move smaller elements left to the pivot and larger to the right
+	swap(arr, hi, index);
+	for(i = lo; i < hi; i++){
 		if(arr[i] < pivot){
-			smaller.push(arr[i]);
-		} else {
-			larger.push(arr[i]);
+			swap(arr, current, i);
+			current++;
 		}
 	}
+	swap(arr, current, hi);
 
-	// apply quicksort to each
-	smaller = quicksort(smaller);
-	larger = quicksort(larger);
-
-	// return concat result
-	smaller.push(pivot);
-	return smaller.concat(larger);
+	return current;
 };
 
 module.exports = function(arr){
-	return quicksort(arr);
+	return quicksort(arr, 0, arr.length - 1);
 };
