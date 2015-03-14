@@ -1,7 +1,8 @@
 'use strict';
 
 /*
-* Logic: Divide the array into n sublists, each with 1 element initially. Repeatedly merge sublists until you only have 1 sublist.
+* Logic: Divide the array into n sublists, each with 1 element initially. 
+* Repeatedly merge sublists until you only have 1 sublist.
 * Advantages: Quick O(n lgn)
 * Disadvantage: 
 */
